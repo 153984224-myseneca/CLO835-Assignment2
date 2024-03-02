@@ -3,12 +3,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql-pod-service
+  namespace: sqldb
 spec:
   selector:
-    pod_name: mysql-pod
+    name: mysql-pod
   ports:
   - protocol: TCP
     port: 3306
     targetPort: 3306
+
 
 

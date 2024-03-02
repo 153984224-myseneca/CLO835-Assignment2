@@ -4,7 +4,7 @@ metadata:
   name: mysql-pod
   namespace: sqldb
   labels:
-    pod_name: mysql-pod
+    name: mysql-pod
 spec:
   containers:
   - name: mysql-pod
