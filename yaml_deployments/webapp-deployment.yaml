@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  namespace: webapp
+  labels:
+    app: employees
+    version: v1
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: employees
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: employees
+        version: v1
+    spec:
+      containers:
+      - name: webapp-container
+        image: 481454206029.dkr.ecr.us-east-1.amazonaws.com/clo835-assignment2-ecr:WebAPP-20240301154443
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DBHOST
+          value: "mysql-pod-service.sqldb"
+        - name: DBPORT
+          value: "3306"
+        - name: DBUSER
+          value: "root"
+        - name: DBPWD
+          valueFrom:
+            secretKeyRef:
+              name: my-db-credentials
+              key: password
+        - name: DATABASE
+          value: "employees"
+        - name: APP_COLOR
+          value: "blue"
+      imagePullSecrets:
+      - name: my-aws-ecr-cred
+
