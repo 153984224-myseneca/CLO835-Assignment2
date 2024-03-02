@@ -58,11 +58,11 @@ def catch_all(path):
     # Or render the same template as the home page
     return render_template('addemp.html', color=color_codes[COLOR])
     
-@app.route("/v1/about", methods=['GET','POST'])
+@app.route("/about", methods=['GET','POST'])
 def about():
     return render_template('about.html', color=color_codes[COLOR])
     
-@app.route("/v1/addemp", methods=['POST'])
+@app.route("/addemp", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
@@ -86,12 +86,12 @@ def AddEmp():
     print("all modification done...")
     return render_template('addempoutput.html', name=emp_name, color=color_codes[COLOR])
 
-@app.route("/v1/getemp", methods=['GET', 'POST'])
+@app.route("/getemp", methods=['GET', 'POST'])
 def GetEmp():
     return render_template("getemp.html", color=color_codes[COLOR])
 
 
-@app.route("/v1/fetchdata", methods=['GET','POST'])
+@app.route("/fetchdata", methods=['GET','POST'])
 def FetchData():
     emp_id = request.form['emp_id']
 
