@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
   - name: webapp-container
-    image: 481454206029.dkr.ecr.us-east-1.amazonaws.com/clo835-assignment2-ecr:WebAPP-20240301154443
+    image: 481454206029.dkr.ecr.us-east-1.amazonaws.com/clo835-assignment2-ecr:WebAPP-20240302001806
     ports:
     - containerPort: 8080
     env:
