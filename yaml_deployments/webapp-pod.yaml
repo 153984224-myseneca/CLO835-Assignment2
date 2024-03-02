@@ -3,8 +3,6 @@ kind: Pod
 metadata:
   name: webapp-pod
   namespace: webapp
-  labels:
-    app: webapp
 spec:
   containers:
   - name: webapp-container
